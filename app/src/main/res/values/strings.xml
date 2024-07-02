@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">DreamCars</string>
+    <string name="sign_in">Entrar</string>
+    <string name="insert_your_username_or_email">Insira seu usuário ou e-mail</string>
+    <string name="login">login</string>
+    <string name="user">Usuário</string>
+    <string name="invalid_email">Email inválido</string>
+    <string name="cancel">Cancelar</string>
+    <string name="insert_your_username">Insirá seu nome de usuário</string>
+    <string name="insert_your_email">Insirá seu e-mail</string>
+    <string name="user_placeholder">joao</string>
+    <string name="email_placeholder">joao@gmail.com</string>
+    <string name="email">email\n</string>
+    <string name="error_on_searching_user">Erro ao procurar usuário</string>
+    <string name="user_not_found">Usuário não encontrado</string>
+    <string name="user_or_email">Usuário ou E-mail</string>
+    <string name="sign_up">Cadastrar</string>
+    <string name="error_registering_new_car">Erro ao cadastrar novo carro</string>
+    <string name="database_error">Erro desconhecido no banco de dados</string>
+    <string name="error_deleting_a_car">Erro ao desfavoritar carro</string>
+    <string name="error_on_sign_up">Erro ao criar novo usuario\n</string>
+    <string name="userName_invalid">Nome inválido</string>
+    <string name="favorite">Favorito</string>
+</resources>

@@ -1,0 +1,21 @@
+package com.barrosedijanio.dreamcars.di
+
+import com.barrosedijanio.dreamcars.ui.viewmodels.HomeScreenViewModel
+import com.barrosedijanio.dreamcars.ui.viewmodels.LoginViewModel
+import com.barrosedijanio.dreamcars.ui.viewmodels.SignUpViewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.dsl.module
+
+val viewModelModules = module {
+    viewModel<HomeScreenViewModel> {
+        HomeScreenViewModel(get(), get())
+    }
+
+    viewModel<LoginViewModel> {
+        LoginViewModel(get())
+    }
+
+    viewModel<SignUpViewModel> {
+        SignUpViewModel(get())
+    }
+}
