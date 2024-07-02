@@ -31,7 +31,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.DreamCars">
+            android:theme="@style/Theme.DreamCars.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

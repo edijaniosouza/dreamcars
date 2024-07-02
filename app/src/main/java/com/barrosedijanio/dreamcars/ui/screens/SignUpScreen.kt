@@ -3,6 +3,7 @@ package com.barrosedijanio.dreamcars.ui.screens
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -29,6 +30,7 @@ import androidx.compose.ui.unit.sp
 import com.barrosedijanio.dreamcars.R
 import com.barrosedijanio.dreamcars.core.generic.GenericResult
 import com.barrosedijanio.dreamcars.ui.state.SignUpUiState
+import com.barrosedijanio.dreamcars.ui.theme.poppinsFontFamily
 
 @Composable
 fun SignUpScreen(
@@ -69,9 +71,11 @@ fun SignUpScreen(
 
         Text(
             text = stringResource(R.string.insert_your_username),
-            fontSize = 16.sp,
+            fontSize = 20.sp,
             fontWeight = FontWeight.SemiBold,
+            fontFamily = poppinsFontFamily
         )
+        Spacer(modifier = Modifier.padding(vertical = 5.dp))
         OutlinedTextField(
             value = uiState.userName,
             onValueChange = {
@@ -86,12 +90,16 @@ fun SignUpScreen(
                 )
             }
         )
+        Spacer(modifier = Modifier.padding(vertical = 10.dp))
 
         Text(
             text = stringResource(R.string.insert_your_email),
-            fontSize = 16.sp,
+            fontSize = 20.sp,
             fontWeight = FontWeight.SemiBold,
+            fontFamily = poppinsFontFamily
         )
+        Spacer(modifier = Modifier.padding(vertical = 5.dp))
+
         OutlinedTextField(
             value = uiState.email,
             onValueChange = {
@@ -111,7 +119,8 @@ fun SignUpScreen(
             stringResource(id = uiState.error),
             fontSize = 14.sp,
             color = Red,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Bold,
+            fontFamily = poppinsFontFamily
         )
 
         Row(
@@ -129,12 +138,20 @@ fun SignUpScreen(
                 if (uiState.isLoading) {
                     CircularProgressIndicator()
                 } else {
-                    Text(text = stringResource(R.string.sign_in))
+                    Text(
+                        text = stringResource(R.string.sign_in), fontSize = 15.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        fontFamily = poppinsFontFamily
+                    )
                 }
             }
 
             TextButton(onClick = onCancel) {
-                Text(stringResource(R.string.cancel))
+                Text(
+                    stringResource(R.string.cancel), fontSize = 15.sp,
+                    fontWeight = FontWeight.Light,
+                    fontFamily = poppinsFontFamily
+                )
             }
         }
     }

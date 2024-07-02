@@ -9,15 +9,21 @@ import com.barrosedijanio.dreamcars.navigation.navGraph.signUpScreen
 import com.barrosedijanio.dreamcars.navigation.screens.Screens
 
 @Composable
-fun Navigation() {
+fun Navigation(userLoggedIn: Boolean) {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = Screens.Login.route) {
-        homeScreen()
+    NavHost(navController = navController, startDestination = Screens.Home.route) {
+        homeScreen(
+            userLoggedIn = userLoggedIn,
+            toFavoriteCarsScreen = { navController.navigate(Screens.FavoriteCars.route) },
+            goToLoginScreen = { navController.navigate(Screens.Login.route) })
         loginScreen(
+            userLoggedIn = userLoggedIn,
             goToHome = { navController.navigate(Screens.Home.route) },
-            signUp = { navController.navigate(Screens.SignUp.route) })
-        signUpScreen(onCancel = {navController.popBackStack()}){
+            signUp = {
+                navController.navigate(Screens.SignUp.route)
+            })
+        signUpScreen(onCancel = { navController.popBackStack() }) {
             navController.navigate(Screens.Home.route)
         }
     }

@@ -1,8 +1,5 @@
 package com.barrosedijanio.dreamcars.database.repositories
 
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.core.edit
 import com.barrosedijanio.dreamcars.R
 import com.barrosedijanio.dreamcars.core.generic.GenericResult
 import com.barrosedijanio.dreamcars.database.dao.CarsDao
@@ -10,37 +7,27 @@ import com.barrosedijanio.dreamcars.database.dao.FavoriteCarsDao
 import com.barrosedijanio.dreamcars.database.dao.UserDao
 import com.barrosedijanio.dreamcars.database.model.FavoriteCar
 import com.barrosedijanio.dreamcars.database.model.User
-import com.barrosedijanio.dreamcars.di.USER_ID
+import com.barrosedijanio.dreamcars.navigation.Session
 import com.barrosedijanio.dreamcars.service.model.Car
 import com.barrosedijanio.dreamcars.service.model.Cars
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.map
 import java.sql.SQLException
 
 class DatabaseRepository(
     private val userDao: UserDao,
     private val carsDao: CarsDao,
     private val favoriteCarsDao: FavoriteCarsDao,
-    private val datastore: DataStore<Preferences>
+    private val session: Session
 ) {
-    // Login e cadastro de usuario
-    val userId = datastore.data.map { preferences ->
-        preferences[USER_ID] ?: 0
-    }
 
-    private suspend fun addUserIntoDataStore(userId: Long) {
-        datastore.edit { preferences ->
-            preferences[USER_ID] = userId.toInt()
-        }
-    }
 
     suspend fun loginWithUsername(userName: String): Flow<GenericResult> = flow {
         try {
             userDao.loginWithUserName(userName).collect { user ->
                 if (user != null) {
-                    addUserIntoDataStore(user.id)
+                    session.setUserId(user.id.toInt())
                     emit(GenericResult.Success)
                 } else {
                     emit(GenericResult.Error(R.string.user_not_found))
@@ -55,7 +42,7 @@ class DatabaseRepository(
         try {
             userDao.loginWithEmail(email).collect { user ->
                 if (user != null) {
-                    addUserIntoDataStore(user.id)
+                    session.setUserId(user.id.toInt())
                     emit(GenericResult.Success)
                 } else {
                     emit(GenericResult.Error(R.string.user_not_found))
@@ -68,13 +55,20 @@ class DatabaseRepository(
 
     suspend fun signUp(email: String, userName: String): GenericResult {
         try {
+            val hasUserName = userDao.loginWithUserName(userName).first()
+            val hasUserEmail = userDao.loginWithEmail(email).first()
+
+            if (hasUserName != null || hasUserEmail != null) {
+                return GenericResult.Error(R.string.user_already_exists)
+            }
+
             val newUser: Long = userDao.insertUser(
                 User(
                     userName = userName,
                     email = email
                 )
             )
-            addUserIntoDataStore(newUser)
+            session.setUserId(newUser.toInt())
             return GenericResult.Success
         } catch (exception: SQLException) {
             return GenericResult.Error(R.string.error_on_sign_up)
@@ -108,7 +102,7 @@ class DatabaseRepository(
     // Carros favoritados
     suspend fun getFavoriteCars(): Flow<List<FavoriteCar>> {
         return try {
-            favoriteCarsDao.getFavorites(userId.first())
+            favoriteCarsDao.getFavorites(session.getUserId().first())
         } catch (e: Exception) {
             flow { emit(emptyList()) }
         }
@@ -139,7 +133,7 @@ class DatabaseRepository(
         }
     }
 
-    suspend fun insertCar(car: Car) : GenericResult {
+    suspend fun insertCar(car: Car): GenericResult {
         try {
             carsDao.insertCar(car)
             return GenericResult.Success

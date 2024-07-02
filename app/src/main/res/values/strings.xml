@@ -21,4 +21,8 @@
     <string name="error_on_sign_up">Erro ao criar novo usuario\n</string>
     <string name="userName_invalid">Nome inválido</string>
     <string name="favorite">Favorito</string>
+    <string name="exit">sair</string>
+    <string name="i_want_it">EU QUERO</string>
+    <string name="userName">Usuário</string>
+    <string name="user_already_exists">Usuário existente</string>
 </resources>

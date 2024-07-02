@@ -51,7 +51,7 @@ class SignUpViewModel(
 
     fun signUp() {
         _userLogged.value = GenericResult.Loading
-        if(_uiState.value.userName.isEmpty()){
+        if(_uiState.value.userName.isEmpty() || _uiState.value.userName.contains(" ")){
             _userLogged.value = GenericResult.Error(R.string.userName_invalid)
             return
         }

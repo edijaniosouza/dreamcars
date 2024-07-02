@@ -1,5 +1,6 @@
 package com.barrosedijanio.dreamcars.navigation.navGraph
 
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.navigation.NavGraphBuilder
@@ -10,6 +11,7 @@ import com.barrosedijanio.dreamcars.ui.viewmodels.LoginViewModel
 import org.koin.androidx.compose.koinViewModel
 
 fun NavGraphBuilder.loginScreen(
+    userLoggedIn: Boolean,
     signUp: () -> Unit,
     goToHome: () -> Unit
 ) {
@@ -17,12 +19,20 @@ fun NavGraphBuilder.loginScreen(
         val viewModel: LoginViewModel = koinViewModel()
         val loginState by viewModel.userResult.collectAsState()
         val uiState by viewModel.uiState.collectAsState()
-        val userLogged by viewModel.userLogged.collectAsState(0)
 
-        if(userLogged != 0) goToHome()
-
-        LoginScreen(uiState = uiState,loginState = loginState, goToHome = goToHome,onLogin = { userName ->
-            viewModel.login(userName)
-        }, onSignIn = signUp)
+        LaunchedEffect(key1 = userLoggedIn) {
+            if (userLoggedIn) {
+                goToHome()
+            }
+        }
+        LoginScreen(
+            uiState = uiState,
+            loginState = loginState,
+            goToHome = goToHome,
+            onLogin = { userName ->
+                viewModel.login(userName)
+            },
+            onSignIn = signUp
+        )
     }
 }

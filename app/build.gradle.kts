@@ -75,7 +75,7 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.koin.androidx.compose)
     implementation(libs.koin.androidx.workmanager)
-//    implementation("koin-androidx-workmanager")
+    implementation (libs.androidx.core.splashscreen)
 
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.room.runtime)

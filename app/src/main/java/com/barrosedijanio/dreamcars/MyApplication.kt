@@ -3,7 +3,7 @@ package com.barrosedijanio.dreamcars
 import android.app.Application
 import com.barrosedijanio.dreamcars.di.cacheModule
 import com.barrosedijanio.dreamcars.di.databaseModule
-import com.barrosedijanio.dreamcars.di.preferencesModule
+import com.barrosedijanio.dreamcars.di.sessionModule
 import com.barrosedijanio.dreamcars.di.serviceModule
 import com.barrosedijanio.dreamcars.di.viewModelModules
 import org.koin.android.ext.koin.androidContext
@@ -20,7 +20,7 @@ class MyApplication : Application(), KoinComponent {
             androidLogger()
             androidContext(this@MyApplication)
             workManagerFactory()
-            modules(databaseModule, serviceModule, viewModelModules, cacheModule, preferencesModule)
+            modules(databaseModule, serviceModule, viewModelModules, cacheModule, sessionModule)
         }
     }
 }

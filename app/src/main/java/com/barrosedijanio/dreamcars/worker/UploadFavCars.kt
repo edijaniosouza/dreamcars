@@ -38,9 +38,9 @@ class UploadFavCars(
 
 @RequiresApi(Build.VERSION_CODES.O)
 val uploadWorkRequest = PeriodicWorkRequestBuilder<UploadFavCars>(
-    repeatInterval = 1,
-    repeatIntervalTimeUnit = TimeUnit.HOURS
+    repeatInterval = 15,
+    repeatIntervalTimeUnit = TimeUnit.MINUTES
 ).setBackoffCriteria(
     backoffPolicy = BackoffPolicy.LINEAR,
-    duration = Duration.ofMinutes(15)
+    duration = Duration.ofMinutes(5)
 ).build()

@@ -21,7 +21,6 @@ class ServiceRepository(
     suspend fun postLeads() : GenericResult {
         try{
             val favoriteCars = databaseRepository.getFavoriteCars().first()
-            Log.i("testeLeads", "postLeads - favoritos: $favoriteCars ")
 
             if(favoriteCars.isNotEmpty()){
                 val favoriteCarsList = FavoriteCarList(favoriteCars)
@@ -35,7 +34,6 @@ class ServiceRepository(
             }
             return GenericResult.Error(0)
         }catch (e: Exception){
-            Log.e("testeLeads", "postLeads ERRO: $e")
             return GenericResult.Error(0)
         }
     }
