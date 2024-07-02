@@ -9,14 +9,11 @@ import com.barrosedijanio.dreamcars.ui.state.LoginScreenUiState
 import com.barrosedijanio.dreamcars.util.EmailValidator
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class LoginViewModel(
     private val databaseRepository: DatabaseRepository,
-    private val session: Session
 ) : ViewModel() {
 
     private var _uiState = MutableStateFlow(LoginScreenUiState())

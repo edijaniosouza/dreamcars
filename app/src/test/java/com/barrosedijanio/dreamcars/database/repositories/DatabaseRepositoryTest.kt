@@ -8,6 +8,7 @@ import com.barrosedijanio.dreamcars.core.generic.GenericResult
 import com.barrosedijanio.dreamcars.database.dao.CarsDao
 import com.barrosedijanio.dreamcars.database.dao.FavoriteCarsDao
 import com.barrosedijanio.dreamcars.database.dao.UserDao
+import com.barrosedijanio.dreamcars.navigation.Session
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
@@ -34,14 +35,14 @@ class DatabaseRepositoryTest {
     private lateinit var favoriteCarsDao: FavoriteCarsDao
 
     @Mock
-    private lateinit var dataStore: DataStore<Preferences>
+    private lateinit var session: Session
 
     private lateinit var databaseRepository: DatabaseRepository
 
     @Before
     fun setup() {
         MockitoAnnotations.openMocks(this)
-        databaseRepository = DatabaseRepository(userDao, carsDao, favoriteCarsDao, dataStore)
+        databaseRepository = DatabaseRepository(userDao, carsDao, favoriteCarsDao, session)
     }
 
     private val email = "teste@teste.com"

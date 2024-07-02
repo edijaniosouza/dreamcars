@@ -17,12 +17,11 @@ fun NavGraphBuilder.homeScreen(
     goToLoginScreen: () -> Unit
 ) {
     composable(route = Screens.Home.route) {
-        val viewModel: HomeScreenViewModel = koinViewModel();
+        val viewModel: HomeScreenViewModel = koinViewModel()
         val data by viewModel.data.collectAsState()
         val favoriteData by viewModel.favoriteData.collectAsState()
 
         LaunchedEffect(key1 = userLoggedIn) {
-            Log.i("testlogin", "homeScreen: $userLoggedIn")
             if(!userLoggedIn){
                 goToLoginScreen()
             }
@@ -36,7 +35,7 @@ fun NavGraphBuilder.homeScreen(
         HomeScreen(data = data, favoriteData = favoriteData, onExitApp = {
             viewModel.logout()
             goToLoginScreen()
-        }, onFavoriteScreen = toFavoriteCarsScreen) { carSelected, isFav ->
+        }) { carSelected, isFav ->
             viewModel.favoriteItem(carSelected, isFav)
         }
     }

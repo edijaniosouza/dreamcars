@@ -9,7 +9,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ExitToApp
 import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -37,7 +36,6 @@ fun HomeScreen(
     data: List<Car>,
     favoriteData: List<FavoriteCar>,
     onExitApp: () -> Unit,
-    onFavoriteScreen: () -> Unit,
     onFavoriteCarSelected: (car: Car, isFav: Boolean) -> Unit,
 ) {
     var favFilter by remember {

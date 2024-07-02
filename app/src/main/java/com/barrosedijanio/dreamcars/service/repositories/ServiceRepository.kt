@@ -1,6 +1,5 @@
 package com.barrosedijanio.dreamcars.service.repositories
 
-import android.util.Log
 import com.barrosedijanio.dreamcars.core.generic.GenericResult
 import com.barrosedijanio.dreamcars.database.model.FavoriteCarList
 import com.barrosedijanio.dreamcars.database.repositories.DatabaseRepository

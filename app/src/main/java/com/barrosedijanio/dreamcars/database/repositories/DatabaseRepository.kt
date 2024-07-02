@@ -21,8 +21,6 @@ class DatabaseRepository(
     private val favoriteCarsDao: FavoriteCarsDao,
     private val session: Session
 ) {
-
-
     suspend fun loginWithUsername(userName: String): Flow<GenericResult> = flow {
         try {
             userDao.loginWithUserName(userName).collect { user ->

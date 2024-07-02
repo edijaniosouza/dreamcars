@@ -10,7 +10,6 @@ import com.barrosedijanio.dreamcars.navigation.Session
 import com.barrosedijanio.dreamcars.service.model.Car
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
