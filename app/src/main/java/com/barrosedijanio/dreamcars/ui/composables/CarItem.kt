@@ -25,7 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.barrosedijanio.dreamcars.R
-import com.barrosedijanio.dreamcars.service.model.Car
+import com.barrosedijanio.dreamcars.models.Car
 import com.barrosedijanio.dreamcars.ui.theme.poppinsFontFamily
 import com.barrosedijanio.dreamcars.util.formatToReal
 

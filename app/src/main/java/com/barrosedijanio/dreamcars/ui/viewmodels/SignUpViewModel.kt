@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.barrosedijanio.dreamcars.R
 import com.barrosedijanio.dreamcars.core.generic.GenericResult
-import com.barrosedijanio.dreamcars.database.repositories.DatabaseRepository
+import com.barrosedijanio.dreamcars.repositories.DatabaseRepository
 import com.barrosedijanio.dreamcars.ui.state.SignUpUiState
 import com.barrosedijanio.dreamcars.util.EmailValidator
 import kotlinx.coroutines.flow.MutableStateFlow

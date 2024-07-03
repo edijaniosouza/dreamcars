@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.barrosedijanio.dreamcars.database.model.User
+import com.barrosedijanio.dreamcars.models.User
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -18,4 +18,7 @@ interface UserDao{
 
     @Query("SELECT * FROM users WHERE email = :email")
     fun loginWithEmail(email: String) : Flow<User?>
+
+    @Query("SELECT * FROM users WHERE id = :id")
+    fun getUserById(id: Int): Flow<User?>
 }

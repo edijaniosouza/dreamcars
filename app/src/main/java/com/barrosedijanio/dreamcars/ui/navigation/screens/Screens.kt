@@ -1,4 +1,4 @@
-package com.barrosedijanio.dreamcars.navigation.screens
+package com.barrosedijanio.dreamcars.ui.navigation.screens
 
 sealed class Screens(val route: String) {
     data object Home: Screens("home")

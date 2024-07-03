@@ -1,15 +1,15 @@
-package com.barrosedijanio.dreamcars.database.repositories
+package com.barrosedijanio.dreamcars.repositories
 
 import com.barrosedijanio.dreamcars.R
 import com.barrosedijanio.dreamcars.core.generic.GenericResult
 import com.barrosedijanio.dreamcars.database.dao.CarsDao
 import com.barrosedijanio.dreamcars.database.dao.FavoriteCarsDao
 import com.barrosedijanio.dreamcars.database.dao.UserDao
-import com.barrosedijanio.dreamcars.database.model.FavoriteCar
-import com.barrosedijanio.dreamcars.database.model.User
-import com.barrosedijanio.dreamcars.navigation.Session
-import com.barrosedijanio.dreamcars.service.model.Car
-import com.barrosedijanio.dreamcars.service.model.Cars
+import com.barrosedijanio.dreamcars.models.Car
+import com.barrosedijanio.dreamcars.models.Cars
+import com.barrosedijanio.dreamcars.models.FavoriteCar
+import com.barrosedijanio.dreamcars.models.User
+import com.barrosedijanio.dreamcars.ui.navigation.Session
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
@@ -103,6 +103,14 @@ class DatabaseRepository(
             favoriteCarsDao.getFavorites(session.getUserId().first())
         } catch (e: Exception) {
             flow { emit(emptyList()) }
+        }
+    }
+
+    suspend fun getUserById(id: Int) : Flow<User?>{
+        return try {
+            userDao.getUserById(id)
+        } catch (e: Exception) {
+            flow { emit(null) }
         }
     }
 

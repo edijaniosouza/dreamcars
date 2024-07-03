@@ -26,8 +26,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.barrosedijanio.dreamcars.R
-import com.barrosedijanio.dreamcars.database.model.FavoriteCar
-import com.barrosedijanio.dreamcars.service.model.Car
+import com.barrosedijanio.dreamcars.models.FavoriteCar
+import com.barrosedijanio.dreamcars.models.Car
 import com.barrosedijanio.dreamcars.ui.composables.CarItem
 
 @OptIn(ExperimentalMaterial3Api::class)

@@ -5,7 +5,7 @@ import com.barrosedijanio.dreamcars.database.AppDatabase
 import com.barrosedijanio.dreamcars.database.dao.CarsDao
 import com.barrosedijanio.dreamcars.database.dao.FavoriteCarsDao
 import com.barrosedijanio.dreamcars.database.dao.UserDao
-import com.barrosedijanio.dreamcars.database.repositories.DatabaseRepository
+import com.barrosedijanio.dreamcars.repositories.DatabaseRepository
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 

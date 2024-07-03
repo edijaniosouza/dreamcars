@@ -1,10 +1,9 @@
-package com.barrosedijanio.dreamcars.service.repositories
+package com.barrosedijanio.dreamcars.repositories
 
 import com.barrosedijanio.dreamcars.core.generic.GenericResult
-import com.barrosedijanio.dreamcars.database.model.FavoriteCarList
-import com.barrosedijanio.dreamcars.database.repositories.DatabaseRepository
+import com.barrosedijanio.dreamcars.models.FavoriteCarList
 import com.barrosedijanio.dreamcars.service.CarsApiService
-import com.barrosedijanio.dreamcars.service.model.Cars
+import com.barrosedijanio.dreamcars.models.Cars
 import kotlinx.coroutines.flow.first
 import retrofit2.Response
 

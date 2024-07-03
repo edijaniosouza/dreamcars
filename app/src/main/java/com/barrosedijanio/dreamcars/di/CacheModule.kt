@@ -1,6 +1,6 @@
 package com.barrosedijanio.dreamcars.di
 
-import com.barrosedijanio.dreamcars.cache.CacheRepository
+import com.barrosedijanio.dreamcars.repositories.CacheRepository
 import org.koin.dsl.module
 
 val cacheModule = module {

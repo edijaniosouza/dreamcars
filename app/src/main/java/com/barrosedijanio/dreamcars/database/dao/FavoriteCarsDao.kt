@@ -5,8 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import androidx.room.Update
-import com.barrosedijanio.dreamcars.database.model.FavoriteCar
+import com.barrosedijanio.dreamcars.models.FavoriteCar
 import kotlinx.coroutines.flow.Flow
 
 @Dao

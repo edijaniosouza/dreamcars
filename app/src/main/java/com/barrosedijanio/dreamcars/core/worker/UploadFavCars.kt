@@ -1,4 +1,4 @@
-package com.barrosedijanio.dreamcars.worker
+package com.barrosedijanio.dreamcars.core.worker
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -10,7 +10,7 @@ import androidx.work.CoroutineWorker
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkerParameters
 import com.barrosedijanio.dreamcars.core.generic.GenericResult
-import com.barrosedijanio.dreamcars.service.repositories.ServiceRepository
+import com.barrosedijanio.dreamcars.repositories.ServiceRepository
 import java.time.Duration
 import java.util.concurrent.TimeUnit
 

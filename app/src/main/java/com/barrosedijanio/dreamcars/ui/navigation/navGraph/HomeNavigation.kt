@@ -1,19 +1,17 @@
-package com.barrosedijanio.dreamcars.navigation.navGraph
+package com.barrosedijanio.dreamcars.ui.navigation.navGraph
 
-import android.util.Log
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import com.barrosedijanio.dreamcars.navigation.screens.Screens
+import com.barrosedijanio.dreamcars.ui.navigation.screens.Screens
 import com.barrosedijanio.dreamcars.ui.screens.HomeScreen
 import com.barrosedijanio.dreamcars.ui.viewmodels.HomeScreenViewModel
 import org.koin.androidx.compose.koinViewModel
 
 fun NavGraphBuilder.homeScreen(
     userLoggedIn: Boolean,
-    toFavoriteCarsScreen: () -> Unit,
     goToLoginScreen: () -> Unit
 ) {
     composable(route = Screens.Home.route) {
@@ -27,16 +25,11 @@ fun NavGraphBuilder.homeScreen(
             }
         }
 
-        LaunchedEffect(key1 = Unit) {
-            viewModel.loadData()
-        }
-
-
         HomeScreen(data = data, favoriteData = favoriteData, onExitApp = {
             viewModel.logout()
             goToLoginScreen()
         }) { carSelected, isFav ->
-            viewModel.favoriteItem(carSelected, isFav)
+            viewModel.toggleFavorite(carSelected, isFav)
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.barrosedijanio.dreamcars.database.model
+package com.barrosedijanio.dreamcars.models
 
 import com.google.gson.annotations.SerializedName
 

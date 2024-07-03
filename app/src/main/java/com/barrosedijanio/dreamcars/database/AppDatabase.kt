@@ -5,9 +5,9 @@ import androidx.room.RoomDatabase
 import com.barrosedijanio.dreamcars.database.dao.CarsDao
 import com.barrosedijanio.dreamcars.database.dao.FavoriteCarsDao
 import com.barrosedijanio.dreamcars.database.dao.UserDao
-import com.barrosedijanio.dreamcars.database.model.FavoriteCar
-import com.barrosedijanio.dreamcars.database.model.User
-import com.barrosedijanio.dreamcars.service.model.Car
+import com.barrosedijanio.dreamcars.models.Car
+import com.barrosedijanio.dreamcars.models.FavoriteCar
+import com.barrosedijanio.dreamcars.models.User
 
 @Database(entities = [User::class, Car::class, FavoriteCar::class], version = 1)
 abstract class AppDatabase : RoomDatabase(){

@@ -1,4 +1,4 @@
-package com.barrosedijanio.dreamcars.navigation
+package com.barrosedijanio.dreamcars.ui.navigation
 
 import android.util.Log
 import androidx.datastore.core.DataStore
@@ -27,7 +27,6 @@ class Session(private val datastore: DataStore<Preferences>){
         return datastore.data.catch {
             emit(emptyPreferences())
         }.map { preference ->
-            Log.i("testLogin", "session: ${preference[isLogged]} ")
             preference[isLogged] ?: false
         }
     }

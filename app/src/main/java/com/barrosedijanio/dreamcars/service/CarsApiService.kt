@@ -1,7 +1,7 @@
 package com.barrosedijanio.dreamcars.service
 
-import com.barrosedijanio.dreamcars.database.model.FavoriteCarList
-import com.barrosedijanio.dreamcars.service.model.Cars
+import com.barrosedijanio.dreamcars.models.FavoriteCarList
+import com.barrosedijanio.dreamcars.models.Cars
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET

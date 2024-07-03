@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.barrosedijanio.dreamcars.service.model.Car
+import com.barrosedijanio.dreamcars.models.Car
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -17,5 +17,4 @@ interface CarsDao {
 
     @Query("SELECT * FROM cars")
     fun getCars(): Flow<List<Car>>
-
 }

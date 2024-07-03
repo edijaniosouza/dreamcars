@@ -16,11 +16,11 @@ import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.WorkManager
-import com.barrosedijanio.dreamcars.navigation.Navigation
+import com.barrosedijanio.dreamcars.ui.navigation.Navigation
 import com.barrosedijanio.dreamcars.ui.theme.DreamCarsTheme
 import com.barrosedijanio.dreamcars.ui.viewmodels.MainViewModel
-import com.barrosedijanio.dreamcars.worker.UPLOAD_LEADS
-import com.barrosedijanio.dreamcars.worker.uploadWorkRequest
+import com.barrosedijanio.dreamcars.core.worker.UPLOAD_LEADS
+import com.barrosedijanio.dreamcars.core.worker.uploadWorkRequest
 import org.koin.androidx.compose.koinViewModel
 
 class MainActivity : ComponentActivity() {

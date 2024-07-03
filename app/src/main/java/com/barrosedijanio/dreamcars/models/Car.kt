@@ -1,4 +1,4 @@
-package com.barrosedijanio.dreamcars.service.model
+package com.barrosedijanio.dreamcars.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

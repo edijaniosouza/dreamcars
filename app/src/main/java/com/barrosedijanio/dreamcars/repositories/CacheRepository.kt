@@ -1,10 +1,10 @@
-package com.barrosedijanio.dreamcars.cache
+package com.barrosedijanio.dreamcars.repositories
 
-import com.barrosedijanio.dreamcars.database.repositories.DatabaseRepository
-import com.barrosedijanio.dreamcars.service.model.Car
-import com.barrosedijanio.dreamcars.service.repositories.ServiceRepository
+import android.util.Log
+import com.barrosedijanio.dreamcars.models.Car
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.runBlocking
 
 class CacheRepository(
     private val serviceRepository: ServiceRepository,
@@ -18,14 +18,13 @@ class CacheRepository(
             val request = serviceRepository.getData()
             if (request.isSuccessful) {
                 request.body()?.let { carsUpdated ->
-                        emit(carsUpdated.cars)
-                    carsUpdated.cars.forEach {
-                        val alreadyInCache = cachedData.contains(it)
-                        if(!alreadyInCache) databaseRepository.insertCar(it)
-                    }
+                    emit(carsUpdated.cars)
+                    databaseRepository.insertCarData(carsUpdated)
                 }
             }
+
         } catch (e: Exception) {
+            Log.i("testData", "erro: ${e.message}")
             emit(null)
         }
     }

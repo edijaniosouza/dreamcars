@@ -1,8 +1,8 @@
 package com.barrosedijanio.dreamcars.di
 
 import com.barrosedijanio.dreamcars.service.CarsApiService
-import com.barrosedijanio.dreamcars.service.repositories.ServiceRepository
-import com.barrosedijanio.dreamcars.worker.UploadFavCars
+import com.barrosedijanio.dreamcars.repositories.ServiceRepository
+import com.barrosedijanio.dreamcars.core.worker.UploadFavCars
 import com.google.gson.GsonBuilder
 import org.koin.androidx.workmanager.dsl.worker
 import org.koin.dsl.module

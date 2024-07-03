@@ -2,7 +2,7 @@ package com.barrosedijanio.dreamcars.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.barrosedijanio.dreamcars.navigation.Session
+import com.barrosedijanio.dreamcars.ui.navigation.Session
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.first
